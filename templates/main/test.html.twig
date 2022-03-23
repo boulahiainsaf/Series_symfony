@@ -1,13 +1,23 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=yes, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html.twig' %}
+{% block body %}
 <h2>testde nouveau</h2>
-</body>
-</html>
+    <div>{{ myserie.title|raw }}{{ autrevar }}</div>
+<div>
+    {# créer une variable  #}
+    {% set name = "insaf" %}
+    <h2>{{ name|upper }}</h2>
+    {# créer un tableau  #}
+    {% set colors=["orange ","blue","green","black"]  %}
+    {% for color in colors %}
+        <div style="background-color: {{ color }}">{{ color }}</div>
+    {% endfor %}
+    {# créer un objet  #}
+    {% set book ={title:"la vie est belle",year:2020,autor:"insaf boulahia"} %}
+    <h1>{{ book.autor }}</h1>
+   <div>
+       {% for key,val in book  %}
+           <div>{{ key}} :{{ val}}        </div>
+       {% endfor %}
+   </div>
+</div>
+{% endblock %}
